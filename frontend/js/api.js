@@ -1,5 +1,5 @@
 const SafeHarbor = (() => {
-  const BASE_URL = "https://safeharbor-backend.onrender.com";
+  const BASE_URL = "https://safeharbor-api-kyao.onrender.com";
   const tokenKey = "safeharbor.token";
   const userKey = "safeharbor.user";
 
