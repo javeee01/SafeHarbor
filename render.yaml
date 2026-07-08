@@ -1,21 +1,11 @@
-databases:
-  - name: safeharbor-db
-    plan: free
-    databaseName: safeharbor_db
-    user: safeharbor_user
-
 services:
   - type: web
-    name: safeharbor-backend
+    name: safeharbor-api
     plan: free
     runtime: docker
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
     envVars:
-      - key: DATABASE_URL
-        fromDatabase:
-          name: safeharbor-db
-          property: connectionString
       - key: SPRING_PROFILES_ACTIVE
         value: prod
       - key: SAFEHARBOR_JWT_SECRET
