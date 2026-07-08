@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | SafeHarbor</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="dashboard.html"><span class="brand-mark">S</span> SafeHarbor</a>
+    <nav class="nav">
+      <a data-nav="dashboard" href="dashboard.html">Dashboard</a>
+      <a data-nav="incidents" href="incident.html">Incidents</a>
+      <a data-nav="inventory" href="inventory.html">Inventory</a>
+      <a data-nav="shelters" href="shelters.html">Shelters</a>
+      <a data-nav="dispatch" href="dispatch.html">Dispatch</a>
+      <a data-nav="admin" href="admin.html">Admin</a>
+      <button data-logout type="button">Logout</button>
+    </nav>
+  </header>
+  <main class="container">
+    <section class="page-head">
+      <div>
+        <h1>Operations Dashboard</h1>
+        <p data-user>Loading operator...</p>
+      </div>
+      <a class="button" href="incident.html">Report incident</a>
+    </section>
+    <section class="grid">
+      <article class="stat-card span-4"><div class="stat-label">Open incidents</div><div id="incidentCount" class="stat-value">0</div></article>
+      <article class="stat-card span-4"><div class="stat-label">Inventory items</div><div id="inventoryCount" class="stat-value">0</div></article>
+      <article class="stat-card span-4"><div class="stat-label">Active shelters</div><div id="shelterCount" class="stat-value">0</div></article>
+      <section class="panel span-7">
+        <h2>Recent incidents</h2>
+        <div id="recentIncidents" class="priority-list"></div>
+      </section>
+      <section class="panel span-5">
+        <h2>Critical shortages</h2>
+        <div id="shortages" class="priority-list"></div>
+      </section>
+    </section>
+    <p id="dashboardStatus" class="status"></p>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

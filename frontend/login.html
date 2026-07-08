@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in | SafeHarbor</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-page">
+  <main class="auth-shell">
+    <section class="auth-info">
+      <div class="brand"><span class="brand-mark">S</span> SafeHarbor</div>
+      <h1>Disaster response coordination</h1>
+      <p>Track incidents, shelters, dispatches, and emergency inventory from one operational console.</p>
+    </section>
+    <section class="auth-forms">
+      <div class="tabs">
+        <button id="loginTab" class="active" type="button">Sign in</button>
+        <button id="registerTab" type="button">Register</button>
+      </div>
+
+      <form id="loginForm" class="auth-form">
+        <label>Username <input name="username" required autocomplete="username"></label>
+        <label>Password <input name="password" type="password" required autocomplete="current-password"></label>
+        <button type="submit">Sign in</button>
+      </form>
+
+      <form id="registerForm" class="auth-form" hidden>
+        <div class="form-grid">
+          <label>Username <input name="username" required autocomplete="username"></label>
+          <label>Password <input name="password" type="password" required autocomplete="new-password"></label>
+          <label>Full name <input name="fullName" required></label>
+          <label>Role
+            <select name="role" required>
+              <option value="AGENCY_DIRECTOR">Agency Director</option>
+              <option value="EMERGENCY_DISPATCHER">Emergency Dispatcher</option>
+              <option value="FIELD_RESPONDER">Field Responder</option>
+              <option value="LOGISTICS_COORDINATOR">Logistics Coordinator</option>
+            </select>
+          </label>
+          <label>Contact number <input name="contactNumber"></label>
+          <label>Assigned region <input name="assignedRegion"></label>
+        </div>
+        <button type="submit">Create account</button>
+      </form>
+      <p id="authStatus" class="status"></p>
+    </section>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

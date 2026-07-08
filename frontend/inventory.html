@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory | SafeHarbor</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="dashboard.html"><span class="brand-mark">S</span> SafeHarbor</a>
+    <nav class="nav">
+      <a data-nav="dashboard" href="dashboard.html">Dashboard</a>
+      <a data-nav="incidents" href="incident.html">Incidents</a>
+      <a data-nav="inventory" href="inventory.html">Inventory</a>
+      <a data-nav="shelters" href="shelters.html">Shelters</a>
+      <a data-nav="dispatch" href="dispatch.html">Dispatch</a>
+      <a data-nav="admin" href="admin.html">Admin</a>
+      <button data-logout type="button">Logout</button>
+    </nav>
+  </header>
+  <main class="container">
+    <section class="page-head"><div><h1>Inventory</h1><p>Manage emergency supplies and critical stock thresholds.</p></div></section>
+    <section class="grid">
+      <section class="panel span-5">
+        <h2>Supply item</h2>
+        <form id="inventoryForm">
+          <input type="hidden" name="id">
+          <div class="form-grid">
+            <label>Item name <input name="itemName" required></label>
+            <label>Category <input name="category" required></label>
+            <label>Available quantity <input name="availableQuantity" type="number" min="0" required></label>
+            <label>Critical threshold <input name="criticalThreshold" type="number" min="1" required></label>
+            <label>Unit <input name="unit" required placeholder="packs, litres, kits"></label>
+          </div>
+          <div class="button-row"><button type="submit">Save item</button><button id="resetInventory" class="secondary" type="button">Clear</button></div>
+        </form>
+        <p id="inventoryStatus" class="status"></p>
+      </section>
+      <section class="panel span-7">
+        <div class="toolbar"><h2>Supply inventory</h2><button id="refreshInventory" class="secondary" type="button">Refresh</button></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Item</th><th>Category</th><th>Available</th><th>Reserved</th><th>Threshold</th><th>Actions</th></tr></thead>
+            <tbody id="inventoryRows"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/inventory.js"></script>
+</body>
+</html>

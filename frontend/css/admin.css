@@ -1,0 +1,9 @@
+.role-chip {
+  display: inline-flex;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #075985;
+  font-size: 0.82rem;
+  font-weight: 700;
+}

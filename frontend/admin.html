@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | SafeHarbor</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="dashboard.html"><span class="brand-mark">S</span> SafeHarbor</a>
+    <nav class="nav">
+      <a data-nav="dashboard" href="dashboard.html">Dashboard</a>
+      <a data-nav="incidents" href="incident.html">Incidents</a>
+      <a data-nav="inventory" href="inventory.html">Inventory</a>
+      <a data-nav="shelters" href="shelters.html">Shelters</a>
+      <a data-nav="dispatch" href="dispatch.html">Dispatch</a>
+      <a data-nav="admin" href="admin.html">Admin</a>
+      <button data-logout type="button">Logout</button>
+    </nav>
+  </header>
+  <main class="container">
+    <section class="page-head"><div><h1>Personnel Admin</h1><p>Agency directors can manage operator accounts.</p></div></section>
+    <section class="grid">
+      <section class="panel span-5">
+        <h2>Personnel account</h2>
+        <form id="personnelForm">
+          <input type="hidden" name="id">
+          <div class="form-grid">
+            <label>Username <input name="username" required></label>
+            <label>Password <input name="password" type="password" required></label>
+            <label>Full name <input name="fullName" required></label>
+            <label>Role
+              <select name="role" required>
+                <option value="AGENCY_DIRECTOR">Agency Director</option>
+                <option value="EMERGENCY_DISPATCHER">Emergency Dispatcher</option>
+                <option value="FIELD_RESPONDER">Field Responder</option>
+                <option value="LOGISTICS_COORDINATOR">Logistics Coordinator</option>
+              </select>
+            </label>
+            <label>Contact number <input name="contactNumber"></label>
+            <label>Assigned region <input name="assignedRegion"></label>
+          </div>
+          <div class="button-row"><button type="submit">Save account</button><button id="resetPersonnel" class="secondary" type="button">Clear</button></div>
+        </form>
+        <p id="adminStatus" class="status"></p>
+      </section>
+      <section class="panel span-7">
+        <div class="toolbar"><h2>Personnel</h2><button id="refreshPersonnel" class="secondary" type="button">Refresh</button></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Name</th><th>Username</th><th>Role</th><th>Region</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="personnelRows"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

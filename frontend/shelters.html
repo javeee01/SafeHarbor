@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shelters | SafeHarbor</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="dashboard.html"><span class="brand-mark">S</span> SafeHarbor</a>
+    <nav class="nav">
+      <a data-nav="dashboard" href="dashboard.html">Dashboard</a>
+      <a data-nav="incidents" href="incident.html">Incidents</a>
+      <a data-nav="inventory" href="inventory.html">Inventory</a>
+      <a data-nav="shelters" href="shelters.html">Shelters</a>
+      <a data-nav="dispatch" href="dispatch.html">Dispatch</a>
+      <a data-nav="admin" href="admin.html">Admin</a>
+      <button data-logout type="button">Logout</button>
+    </nav>
+  </header>
+  <main class="container">
+    <section class="page-head"><div><h1>Shelters</h1><p>Register relief shelters and maintain live occupancy counts.</p></div></section>
+    <section class="grid">
+      <section class="panel span-5">
+        <h2>Shelter form</h2>
+        <form id="shelterForm">
+          <input type="hidden" name="id">
+          <label>Shelter name <input name="shelterName" required></label>
+          <label>Address <textarea name="locationAddress" required></textarea></label>
+          <div class="form-grid">
+            <label>Capacity <input name="capacity" type="number" min="1" required></label>
+            <label>Current occupancy <input name="currentOccupancy" type="number" min="0" required></label>
+            <label>Manager name <input name="managerName"></label>
+          </div>
+          <div class="button-row"><button type="submit">Save shelter</button><button id="resetShelter" class="secondary" type="button">Clear</button></div>
+        </form>
+        <p id="shelterStatus" class="status"></p>
+      </section>
+      <section class="panel span-7">
+        <div class="toolbar"><h2>Relief shelters</h2><button id="refreshShelters" class="secondary" type="button">Refresh</button></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Shelter</th><th>Address</th><th>Occupancy</th><th>Manager</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="shelterRows"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/shelter.js"></script>
+</body>
+</html>
